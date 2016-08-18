@@ -1,0 +1,16 @@
+{
+  "name": "a11y-hacking",
+  "version": "1.0.0-0",
+  "private": true,
+  "scripts": {
+    "start": "static",
+    "test": "eslint clean-html.js"
+  },
+  "devDependencies": {
+    "cheerio": "^0.20.0",
+    "concat-stream": "^1.5.1",
+    "eslint": "^3.3.1",
+    "node-static": "^0.7.8",
+    "through": "^2.3.8"
+  }
+}
