@@ -3,7 +3,7 @@
   "version": "1.0.0-0",
   "private": true,
   "scripts": {
-    "start": "static",
+    "start": "static -a 0.0.0.0",
     "test": "eslint clean-html.js"
   },
   "devDependencies": {

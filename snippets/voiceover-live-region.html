@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <script>
+            window.addEventListener('load', function() {
+                var insertButton = document.getElementById('insert-button');
+
+                insertButton.addEventListener('click', function() {
+                    var target = document.getElementById('to-insert');
+                    target.innerHTML = `
+                        <div aria-live="polite">
+                            <p>First paragraph</p>
+                            <ul>
+                                <li>First item</li>
+                                <li>Second item</li>
+                            </ul>
+                            <p>Second paragraph</p>
+                            <ul>
+                                <li>Third item</li>
+                                <li>Fourth item</li>
+                            </ul>
+                        </div>
+                    `;
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <button id="insert-button">Insert</button>
+        <div id="to-insert"></div>
+    </body>
+</html>
