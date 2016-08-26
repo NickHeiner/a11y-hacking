@@ -10,30 +10,59 @@
         </style>
         <script>
             window.addEventListener('load', function() {
-                var insertButton = document.getElementById('insert-button');
-
-                insertButton.addEventListener('click', function() {
-                    var target = document.getElementById('to-insert');
-                    target.innerHTML = `
-                        <div>
-                            <p aria-live="polite">First paragraph</p>
-                            <ul aria-live="polite">
-                                <li>First item</li>
-                                <li>Second item</li>
-                            </ul>
-                            <p aria-live="polite">Second paragraph</p>
-                            <ul aria-live="polite">
-                                <li>Third item</li>
-                                <li>Fourth item</li>
-                            </ul>
-                        </div>
-                    `;
+                setUpInsertButton('insert-button', 'to-insert', function(target) {
+                    target.children[0].setAttribute('aria-live', 'assertive');
                 });
+
+                setUpInsertButton('insert-button-children', 'to-insert-children', function(target) {
+                    Array.prototype.forEach.call(target.children, function(child) {
+                        Array.prototype.forEach.call(child.children, function(grandchild) {
+                            grandchild.setAttribute('aria-live', 'assertive');
+                        });
+                    });
+                });
+
+                setUpInsertButton('insert-button-already', 'to-insert-already');
+
+                function setUpInsertButton(insertId, targetId, modifyTarget) {
+                    var insertButton = document.getElementById(insertId);
+
+                    insertButton.addEventListener('click', function() {
+                        var target = document.getElementById(targetId);
+                        target.innerHTML = `
+                            <div>
+                                <p>First paragraph</p>
+                                <ul>
+                                    <li>First item</li>
+                                    <li>Second item</li>
+                                </ul>
+                                <p>Second paragraph</p>
+                                <ul>
+                                    <li>Third item</li>
+                                    <li>Fourth item</li>
+                                </ul>
+                            </div>
+                        `;
+
+                        if (modifyTarget) {
+                            modifyTarget(target);
+                        } 
+                    });
+                }
             });
         </script>
     </head>
     <body>
+        <h1>Putting aria-live on the root</h1>
         <button id="insert-button">Insert</button>
         <div id="to-insert"></div>
+        
+        <h1>Putting aria-live on the children</h1>
+        <button id="insert-button-children">Insert</button>
+        <div id="to-insert-children"></div>
+
+        <h1>aria-live is already set on the container</h1>
+        <button id="insert-button-already">Insert</button>
+        <div id="to-insert-already" aria-live="assertive"></div>
     </body>
 </html>
