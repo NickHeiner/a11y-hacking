@@ -23,14 +23,20 @@
                 });
 
                 setUpInsertButton('insert-button-already', 'to-insert-already');
+                setUpInsertButton(
+                    'insert-button-added-initially', 
+                    'to-insert-added-initially', 
+                    null, 
+                    'aria-live="assertive"'
+                );
 
-                function setUpInsertButton(insertId, targetId, modifyTarget) {
+                function setUpInsertButton(insertId, targetId, modifyTarget, extraRootContent) {
                     var insertButton = document.getElementById(insertId);
 
                     insertButton.addEventListener('click', function() {
                         var target = document.getElementById(targetId);
                         target.innerHTML = `
-                            <div>
+                            <div ${extraRootContent}>
                                 <p>First paragraph</p>
                                 <ul>
                                     <li>First item</li>
@@ -64,5 +70,9 @@
         <h1>aria-live is already set on the container</h1>
         <button id="insert-button-already">Insert</button>
         <div id="to-insert-already" aria-live="assertive"></div>
+
+        <h1>aria-live set on root as it is first added to the dom</h1>
+        <button id="insert-button-added-initially">Insert</button>
+        <div id="to-insert-added-initially"></div>
     </body>
 </html>
