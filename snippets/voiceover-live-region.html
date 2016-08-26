@@ -14,13 +14,8 @@
                     target.children[0].setAttribute('aria-live', 'assertive');
                 });
 
-                setUpInsertButton('insert-button-children', 'to-insert-children', function(target) {
-                    Array.prototype.forEach.call(target.children, function(child) {
-                        Array.prototype.forEach.call(child.children, function(grandchild) {
-                            grandchild.setAttribute('aria-live', 'assertive');
-                        });
-                    });
-                });
+                setUpInsertButton('insert-button-children', 'to-insert-children', putAriaLiveOnGrandchildren);
+                setUpInsertButton('insert-button-with-dialog', 'to-insert-with-dialog', putAriaLiveOnGrandchildren);
 
                 setUpInsertButton('insert-button-already', 'to-insert-already');
                 setUpInsertButton(
@@ -29,6 +24,14 @@
                     null, 
                     'aria-live="assertive"'
                 );
+
+                function putAriaLiveOnGrandchildren(target) {
+                    Array.prototype.forEach.call(target.children, function(child) {
+                        Array.prototype.forEach.call(child.children, function(grandchild) {
+                            grandchild.setAttribute('aria-live', 'assertive');
+                        });
+                    });
+                }
 
                 function setUpInsertButton(insertId, targetId, modifyTarget, extraRootContent) {
                     var insertButton = document.getElementById(insertId);
@@ -66,6 +69,10 @@
         <h1>Putting aria-live on the children</h1>
         <button id="insert-button-children">Insert</button>
         <div id="to-insert-children"></div>
+        
+        <h1>Putting aria-live on the children with dialog</h1>
+        <button id="insert-button-with-dialog">Insert</button>
+        <div id="to-insert-with-dialog" role="dialog"></div>
 
         <h1>aria-live is already set on the container</h1>
         <button id="insert-button-already">Insert</button>
