@@ -1,5 +1,13 @@
 <html>
     <head>
+        <style>
+            [aria-live=polite] {
+                color: orange;
+            }
+            [aria-live=assertive] {
+                color: red;
+            }
+        </style>
         <script>
             window.addEventListener('load', function() {
                 var insertButton = document.getElementById('insert-button');
@@ -7,14 +15,14 @@
                 insertButton.addEventListener('click', function() {
                     var target = document.getElementById('to-insert');
                     target.innerHTML = `
-                        <div aria-live="polite">
-                            <p>First paragraph</p>
-                            <ul>
+                        <div>
+                            <p aria-live="polite">First paragraph</p>
+                            <ul aria-live="polite">
                                 <li>First item</li>
                                 <li>Second item</li>
                             </ul>
-                            <p>Second paragraph</p>
-                            <ul>
+                            <p aria-live="polite">Second paragraph</p>
+                            <ul aria-live="polite">
                                 <li>Third item</li>
                                 <li>Fourth item</li>
                             </ul>
