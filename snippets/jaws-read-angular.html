@@ -1,17 +1,17 @@
 <html>
     <head>
         <title>JAWS reading angular content</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script type="text/javascript">
+            angular.module('a11y', [])
+                .controller('RootCtrl', function($scope) {
+                    $scope.items = [];
+                    $scope.addItem = function() {
+                        $scope.items.push({name: 'Widget ' + ($scope.items.length + 1)});
+                    };
+                });
+        </script>  
     </head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
-    <script type="text/javascript">
-        angular.module('a11y', [])
-            .controller('RootCtrl', function($scope) {
-                $scope.items = [];
-                $scope.addItem = function() {
-                    $scope.items.push({name: 'Widget ' + ($scope.items.length + 1)});
-                };
-            });
-    </script>  
 <body ng-app="a11y" ng-controller="RootCtrl">
     <h1>JAWS reading Angular content</h1>
     <button ng-click="addItem()">Add item</button>
