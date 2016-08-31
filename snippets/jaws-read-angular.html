@@ -1,24 +1,47 @@
 <html>
     <head>
         <title>JAWS reading angular content</title>
+        <style>
+            [aria-hidden="true"] {
+                color: red;
+            }
+        </style>  
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
         <script type="text/javascript">
             angular.module('a11y', [])
                 .controller('RootCtrl', function($scope) {
                     $scope.items = [];
-                    $scope.addItem = function() {
-                        $scope.items.push({name: 'Widget ' + ($scope.items.length + 1)});
+                    $scope.hiddenItems = [];
+                    $scope.addItem = function(dest) {
+                        dest.push({name: 'Widget ' + (dest.length + 1)});
+                    };
+                })
+                .directive('removeAttr', function($timeout) {
+                    return {
+                        restrict: 'A',
+                        link: function(scope, elem) {
+                            $timeout(function() {
+                                elem.attr('aria-hidden', '');
+                            }, 1000);
+                        }
                     };
                 });
         </script>  
     </head>
 <body ng-app="a11y" ng-controller="RootCtrl">
     <h1>JAWS reading Angular content</h1>
-    <button ng-click="addItem()">Add item</button>
+    <button ng-click="addItem(items)">Add item</button>
     <div aria-live="assertive">
         <h2>Items</h2>
         <ul>
             <li ng-repeat="item in items">{{item.name}}</li>
+        </ul>
+    </div>
+    <button ng-click="addItem(hiddenItems)">Add initially hidden item</button>
+    <div aria-live="assertive">
+        <h2>Items that will start as hidden</h2>
+        <ul>
+            <li ng-repeat="item in hiddenItems" aria-hidden="true" remove-attr>{{item.name}}</li>
         </ul>
     </div>
 </body>
