@@ -13,7 +13,14 @@
             .controller("MainCtl", function ($scope, $uibModal) {
                $scope.openModal = function() {
                    $uibModal.open({
-                    templateUrl: 'jaws-read-modal-template-3.html',
+                    template: [ 
+                        '<h2 class="modal-header" id="aria-modal-title">Payment Plans</h2>',
+                        '<div class="modal-body" id="aria-modal-body">',
+                            '<p>Apply for a Short Term or Monthly Payment Plan that best fits your needs.</p>',
+                            '<p>Second paragraph of content</p>',
+                            '<button>Impotence</button>', 
+                        '</div>'
+                        ].join('\n'),
                     ariaLabelledBy: 'aria-modal-title',
                     ariaDescribedBy: 'aria-modal-body',
                     animation: false,
