@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>UI Bootstrap modals</title>
+
+        <link 
+            rel="stylesheet" 
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  />
+          
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="../ui-bootstrap-tpls-2.1.4-SNAPSHOT.js"></script>
+        <script type="text/javascript">
+            angular.module('modal', ['ui.bootstrap'])
+            .controller("MainCtl", function ($scope, $uibModal) {
+               $scope.openModal = function() {
+                   $uibModal.open({
+                    templateUrl: '/snippets/jaws-read-modal-template-3.html',
+                    ariaLabelledBy: 'aria-modal-title',
+                    ariaDescribedBy: 'aria-modal-body',
+                    animation: false,
+                    size: 'lg',
+                    scope: $scope
+                });
+               }
+            });
+        </script>  
+    </head>
+    <body ng-app="modal" ng-controller="MainCtl">
+        <h1>Modal Testing</h1>
+        <button ng-click="openModal()">Modal3</button>
+    </body>
+</html>

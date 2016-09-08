@@ -3,7 +3,7 @@
   "version": "1.0.0-0",
   "private": true,
   "scripts": {
-    "start": "static -a 0.0.0.0",
+    "start": "static -a 0.0.0.0 -p 8010 -H '{\"Cache-Control\": \"no-cache, must-revalidate\"}'",
     "test": "eslint clean-html.js"
   },
   "devDependencies": {
