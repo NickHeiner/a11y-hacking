@@ -12,6 +12,12 @@
             angular.module('modal', ['ui.bootstrap'])
             .controller("MainCtl", function ($scope, $uibModal) {
                 var templates = {
+                    noAriaLabelDescribe: [ 
+                        '<h2 class="modal-header">Payment Plans</h2>',
+                        '<div class="modal-body">',
+                            '<p>Small content</p>',
+                        '</div>'
+                        ],
                     minimal: [ 
                         '<h2 class="modal-header" id="aria-modal-title">Payment Plans</h2>',
                         '<div class="modal-body" id="aria-modal-body">',
@@ -42,11 +48,11 @@
                         ]
                 }
 
-                $scope.openModal = function(templateName) {
+                $scope.openModal = function(templateName, skipAria) {
                    $uibModal.open({
                     template: templates[templateName].join('\n'),
-                    ariaLabelledBy: 'aria-modal-title',
-                    ariaDescribedBy: 'aria-modal-body',
+                    ariaLabelledBy: skipAria ? undefined : 'aria-modal-title',
+                    ariaDescribedBy: skipAria ? undefined : 'aria-modal-body',
                     animation: false,
                     size: 'lg',
                     scope: $scope
@@ -57,6 +63,7 @@
     </head>
     <body ng-app="modal" ng-controller="MainCtl">
         <h1>Modal Testing</h1>
+        <button ng-click="openModal('noAriaLabelDescribe', true)">Modal without aria labelledby and describedby</button>
         <button ng-click="openModal('minimal')">Minimal modal</button>
         <button ng-click="openModal('size1')">Size 1</button>
         <button ng-click="openModal('midSized')">Mid-sized modal</button>
