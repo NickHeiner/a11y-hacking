@@ -18,6 +18,13 @@
                             '<p>Small content</p>',
                         '</div>'
                         ],
+                    midSized: [ 
+                        '<h2 class="modal-header" id="aria-modal-title">Payment Plans</h2>',
+                        '<div class="modal-body" id="aria-modal-body">',
+                            '<p>Small content</p>',
+                            '<p>Second paragraph</p>',
+                        '</div>'
+                        ],
                     normal: [ 
                         '<h2 class="modal-header" id="aria-modal-title">Payment Plans</h2>',
                         '<div class="modal-body" id="aria-modal-body">',
@@ -44,6 +51,7 @@
     <body ng-app="modal" ng-controller="MainCtl">
         <h1>Modal Testing</h1>
         <button ng-click="openModal('minimal')">Minimal modal</button>
+        <button ng-click="openModal('midSized')">Mid-sized modal</button>
         <button ng-click="openModal('normal')">Normal modal</button>
     </body>
 </html>
