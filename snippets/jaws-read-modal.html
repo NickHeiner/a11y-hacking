@@ -66,8 +66,15 @@
                             '</div>',
                             '<button>Impotence</button>', 
                         '</div>'
+                        ],
+                    shorterDescription: [ 
+                        '<h2 class="modal-header" id="aria-modal-title">Payment Plans</h2>',
+                        '<div class="modal-body">',
+                            '<p id="aria-modal-body">Apply for a Short Term or Monthly Payment Plan that best fits your needs.</p>',
+                            '<button>Impotence</button>', 
+                        '</div>'
                         ]
-                }
+                };
 
                 $scope.openModal = function(templateName, skipAria, skipAriaLive) {
                    $uibModal.open({
@@ -92,6 +99,9 @@
     </head>
     <body ng-app="modal" ng-controller="MainCtl">
         <h1>Modal Testing</h1>
+        <button ng-click="openModal('shorterDescription', false, true)">
+            aria-describedby points to a single paragraph instead of a div with multiple children
+        </button>
         <button ng-click="openModal('noAriaLabelDescribe', true)">Modal without aria labelledby and describedby</button>
         <button ng-click="openModal('minimal')">Minimal modal</button>
         <button ng-click="openModal('size1')">Size 1</button>
