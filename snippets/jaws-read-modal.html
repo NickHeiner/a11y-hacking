@@ -48,11 +48,12 @@
                         ]
                 }
 
-                $scope.openModal = function(templateName, skipAria) {
+                $scope.openModal = function(templateName, skipAria, skipAriaLive) {
                    $uibModal.open({
                     template: templates[templateName].join('\n'),
                     ariaLabelledBy: skipAria ? undefined : 'aria-modal-title',
                     ariaDescribedBy: skipAria ? undefined : 'aria-modal-body',
+                    skipAriaLive: skipAriaLive,
                     animation: false,
                     size: 'lg',
                     scope: $scope
@@ -68,5 +69,6 @@
         <button ng-click="openModal('size1')">Size 1</button>
         <button ng-click="openModal('midSized')">Mid-sized modal</button>
         <button ng-click="openModal('normal')">Normal modal</button>
+        <button ng-click="openModal('normal', false, true)">Normal modal without aria-live</button>
     </body>
 </html>

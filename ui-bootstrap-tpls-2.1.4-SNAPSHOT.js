@@ -4111,7 +4111,7 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.p
           'role': 'dialog',
           'aria-labelledby': modal.ariaLabelledBy,
           'aria-describedby': modal.ariaDescribedBy,
-          'aria-live': 'polite',
+          'aria-live': modal.skipAriaLive ? undefined : 'polite',
           'size': modal.size,
           'index': topModalIndex,
           'animate': 'animate',
@@ -4388,6 +4388,7 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.p
                   windowTemplateUrl: modalOptions.windowTemplateUrl,
                   ariaLabelledBy: modalOptions.ariaLabelledBy,
                   ariaDescribedBy: modalOptions.ariaDescribedBy,
+                  skipAriaLive: modalOptions.skipAriaLive,
                   size: modalOptions.size,
                   openedClass: modalOptions.openedClass,
                   appendTo: modalOptions.appendTo
