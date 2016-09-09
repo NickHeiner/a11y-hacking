@@ -12,6 +12,7 @@
                 .controller('RootCtrl', function($scope) {
                     $scope.items = [];
                     $scope.hiddenItems = [];
+                    $scope.bindItems = [];
                     $scope.addItem = function(dest) {
                         dest.push({name: 'Widget ' + (dest.length + 1)});
                     };
@@ -42,6 +43,13 @@
         <h2>Items that will start as hidden</h2>
         <ul>
             <li ng-repeat="item in hiddenItems" aria-hidden="true" remove-attr>{{item.name}}</li>
+        </ul>
+    </div>
+    <button ng-click="addItem(bindItems)">Add item with ng-bind</button>
+    <div aria-live="assertive">
+        <h2>Items that will start as hidden</h2>
+        <ul>
+            <li ng-repeat="item in bindItems" ng-bind="item.name"></li>
         </ul>
     </div>
 </body>
