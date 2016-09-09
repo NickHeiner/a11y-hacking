@@ -5,6 +5,17 @@
         <link 
             rel="stylesheet" 
             href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  />
+
+        <link 
+            rel="stylesheet" 
+            href="https://code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css"  />
+
+        <script src="https://code.jquery.com/jquery-3.1.0.js" 
+                integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" 
+                crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"    
+                integrity="sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=" 
+                crossorigin="anonymous"></script>
           
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
         <script src="../ui-bootstrap-tpls-2.1.4-SNAPSHOT.js"></script>
@@ -68,7 +79,14 @@
                     size: 'lg',
                     scope: $scope
                 });
-               }
+               };
+            });
+
+            $(function() {
+                $('#jquery-modal').dialog({autoOpen: false});
+                $('#jquery-modal-trigger').click(function() {
+                    $('#jquery-modal').dialog('open');
+                });
             });
         </script>  
     </head>
@@ -83,5 +101,9 @@
         <button ng-click="openModal('normalButtonNotInDescription', false, true)">
             Normal modal without aria-live and without button in description
         </button>
+        <button id="jquery-modal-trigger">jQuery Modal</button>
+        <div id="jquery-modal" title="Dialog Name">
+            <p>Modal content</p>
+        </div>
     </body>
 </html>
