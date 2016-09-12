@@ -57,6 +57,13 @@
                             '<button>Impotence</button>', 
                         '</div>'
                         ],
+                    normalNoButton: [ 
+                        '<h2 class="modal-header" id="aria-modal-title">Payment Plans</h2>',
+                        '<div class="modal-body" id="aria-modal-body">',
+                            '<p>Apply for a Short Term or Monthly Payment Plan that best fits your needs.</p>',
+                            '<p>Second paragraph of content</p>',
+                        '</div>'
+                        ],
                     normalButtonNotInDescription: [ 
                         '<h2 class="modal-header" id="aria-modal-title">Payment Plans</h2>',
                         '<div class="modal-body">',
@@ -121,6 +128,7 @@
         <button ng-click="openModal('midSized')">Mid-sized modal</button>
         <button ng-click="openModal('normal')">Normal modal</button>
         <button ng-click="openModal('normal', false, true)">Normal modal without aria-live</button>
+        <button ng-click="openModal('normalNoButton', false, true)">Normal modal without aria-live or button</button>
         <button ng-click="openModal('normalButtonNotInDescription', false, true)">
             Normal modal without aria-live and without button in description
         </button>
