@@ -55,6 +55,8 @@
              Table <col count> columns <row count> rows.
 
              Then you can use the VO+left/right arrow to navigate the table as expected.
+             Based on other examples below, I believe that macOS VoiceOver ignores the caption 
+             when aria-describedby is present.
 
              iOS VoiceOver will read the following when you right swipe onto the table from the previous element.
 
@@ -158,8 +160,8 @@
             </tr>
         </table>
 
-        <h1 id="table-labelled-by-label">Table with aria-labelledby</h1>
-        <table aria-labelledby="table-labelled-by-label">
+        <h1 id="table-labelledby-label">Table with aria-labelledby</h1>
+        <table aria-labelledby="table-labelledby-label">
             <tr>
                 <th>Year</th>
                 <th>Cost</th>
@@ -179,12 +181,15 @@
         </table>
         </table>
 
-        <h1 id="table-hidden-caption-label">Table with aria-hidden caption</h1>
+        <h1 id="table-caption-label">Table with just a caption</h1>
         <!--
-            macOS VoiceOver: <aria labelled-by> table <caption> 
+            macOS VoiceOver: <aria labelledby> table <caption>
+            iOS VoiceOver: <caption> <aria labelledby> <first header> table start
+            JAWS: Table with <col count> columns and <row count> rows. <aria label> 
+                    column 1 row 1 <first header> <first header> 
         -->
-        <table aria-labelledby="table-hidden-caption-label">
-            <caption aria-hidden="true">This caption is aria hidden</caption>
+        <table aria-labelledby="table-caption-label">
+            <caption>caption</caption>
             <tr>
                 <th>Year</th>
                 <th>Cost</th>

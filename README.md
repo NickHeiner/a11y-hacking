@@ -12,3 +12,8 @@ Just swapping Angular 1 modals to use `role=document` makes everything worse. JA
 
 At the very least, Angular 2 may help the `ng-repeat` issue: https://github.com/angular/angular.js/issues/15079.
 
+Unless otherwise noted, the environment used is one of:
+
+* JAWS 16 / Windows 7 / IE11
+* VoiceOver / macOS 10.11.1 / Chrome
+* VoiceOver / iOS 9.3.4 / Safari 
