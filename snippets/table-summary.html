@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Table Demo</title>
+    </head>
+    <body>
+        <h1>Non-standards-compliant table</h1>
+        <table summary="this is the table summary">
+            <tr>
+                <th>Year</th>
+                <th>Cost</th>
+            </tr>
+            <tr>
+                <td>2015</td>
+                <td>$2,541</td>
+            </tr>
+            <tr>
+                <td>2014</td>
+                <td>$9,001</td>
+            </tr>
+            <tr>
+                <td>2013</td>
+                <td>$1,337</td>
+            </tr>
+        </table>
+
+        <h1>Standards-compliant table</h1>
+        <!-- By setting this as aria-hidden, we still hear the content read when VoiceOver traverses
+             the table, but we don't hear it in the normal page flow. This is desirable, because otherwise
+             the content would be read twice.
+        -->
+        <p aria-hidden="true" id="table-description">This is the table description set by aria-describedby</p>
+        <table aria-label="this is the table label set by aria-label" aria-describedby="table-description">
+            <caption>This is the caption</caption>
+            <tr>
+                <th>Year</th>
+                <th>Cost</th>
+            </tr>
+            <tr>
+                <td>2015</td>
+                <td>$2,541</td>
+            </tr>
+            <tr>
+                <td>2014</td>
+                <td>$9,001</td>
+            </tr>
+            <tr>
+                <td>2013</td>
+                <td>$1,337</td>
+            </tr>
+        </table>
+
+        <h1>Standards-compliant table with figcaption</h1>
+        <figure>
+            <figcaption>
+                <strong id="caption">This is the figcaption</strong>
+                <em id="fig-summary">This is the fig summary</em>
+            </figcaption>
+        </figure>
+        <table aria-labelledby="caption" aria-describedby="fig-summary">
+            <caption>This is the caption</caption>
+            <tr>
+                <th>Year</th>
+                <th>Cost</th>
+            </tr>
+            <tr>
+                <td>2015</td>
+                <td>$2,541</td>
+            </tr>
+            <tr>
+                <td>2014</td>
+                <td>$9,001</td>
+            </tr>
+            <tr>
+                <td>2013</td>
+                <td>$1,337</td>
+            </tr>
+        </table>
+
+        <h1>Standards-compliant table with scope</h1>
+        <p id="table-description">This is the table description</p>
+        <table aria-label="this is the table label" aria-describedby="table-description">
+            <caption>This is the caption</caption>
+            <tr>
+                <th scope="col">Year</th>
+                <th scope="col">Cost</th>
+            </tr>
+            <tr>
+                <td>2015</td>
+                <td>$2,541</td>
+            </tr>
+            <tr>
+                <td>2014</td>
+                <td>$9,001</td>
+            </tr>
+            <tr>
+                <td>2013</td>
+                <td>$1,337</td>
+            </tr>
+        </table>
+    </body>
+</html>
