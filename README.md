@@ -11,3 +11,4 @@ I wonder if `aria-live` messes it up because of the way that AngularJS compiles 
 Just swapping Angular 1 modals to use `role=document` makes everything worse. JAWS and macOS VoiceOver do not read the content properly. They only read the button. And, of course, they do not announce that it's a modal. 
 
 At the very least, Angular 2 may help the `ng-repeat` issue: https://github.com/angular/angular.js/issues/15079.
+
