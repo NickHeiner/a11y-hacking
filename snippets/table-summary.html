@@ -51,6 +51,49 @@
             </tr>
         </table>
 
+        <!--
+            macOS VoiceOver: 
+                Navigate directly to table with VO+Command+t:
+                    
+                    <aria labelledby> table
+
+                    (The summary attribute is ignored.)
+
+                Scroll with virtual cursor:
+
+                    <aria labelledby> <aria labelledby> table <col count> columns, <row count> rows
+
+            iOS VoiceOver: 
+                Scroll with virtual cursor:
+
+            JAWS: 
+                Navigate directly to table with Insert+F3
+
+
+                Scroll with virtual cursor:
+
+
+        -->
+        <h1 id="non-compliant-label">Non-standards-compliant table with label</h1>
+        <table summary="this is the table summary" aria-labelledby="non-compliant-label">
+            <tr>
+                <th>Year</th>
+                <th>Cost</th>
+            </tr>
+            <tr>
+                <td>2015</td>
+                <td>$2,541</td>
+            </tr>
+            <tr>
+                <td>2014</td>
+                <td>$9,001</td>
+            </tr>
+            <tr>
+                <td>2013</td>
+                <td>$1,337</td>
+            </tr>
+        </table>
+
         <h1>Standards-compliant table</h1>
         <!-- By setting this as aria-hidden, we still hear the content read when VoiceOver traverses
              the table, but we don't hear it in the normal page flow. This is desirable, because otherwise
