@@ -183,13 +183,33 @@
 
         <h1 id="table-caption-label">Table with just a caption</h1>
         <!--
-            macOS VoiceOver: <aria labelledby> table <caption>
-            iOS VoiceOver: <caption> <aria labelledby> <first header> table start
-            JAWS: Table with <col count> columns and <row count> rows. <aria label> 
-                    column 1 row 1 <first header> <first header> 
+            macOS VoiceOver: 
+                Navigate directly to table with VO+Command+t
+                    
+                    <aria labelledby> table <caption>
+
+                Scroll with virtual cursor:
+
+                    <aria labelledby> <aria labelledby> table with <col count> columns, <row count> rows. <caption>
+
+            iOS VoiceOver: 
+                Scroll with virtual cursor:
+                    <caption> <aria labelledby> <caption> table start
+
+            JAWS: 
+                Navigate directly to table with Insert+F3
+
+                    Table with <col count> columns and <row count> rows. <aria label> 
+                    column 1 row 1 <first header> <first header>
+
+                Scroll with virtual cursor:
+
+                    Table with <col count> columns and <row count> rows. <caption> <first header> <second header>
+
+            
         -->
         <table aria-labelledby="table-caption-label">
-            <caption>caption</caption>
+            <caption>this is the caption</caption>
             <tr>
                 <th>Year</th>
                 <th>Cost</th>
