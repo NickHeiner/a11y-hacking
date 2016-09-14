@@ -29,7 +29,9 @@
              the table, but we don't hear it in the normal page flow. This is desirable, because otherwise
              the content would be read twice.
         -->
-        <p aria-hidden="true" id="table-description">This is the table description set by aria-describedby</p>
+        <p aria-hidden="true" id="table-description">
+            This is the table description set by aria-describedby. It is marked as aria-hidden.
+        </p>
         <table aria-label="this is the table label set by aria-label" aria-describedby="table-description">
             <caption>This is the caption</caption>
             <tr>
@@ -78,7 +80,7 @@
         </table>
 
         <h1>Standards-compliant table with scope</h1>
-        <p id="table-description">This is the table description</p>
+        <p id="table-description">This is the table description. It is not marked as aria-hidden.</p>
         <table aria-label="this is the table label" aria-describedby="table-description">
             <caption>This is the caption</caption>
             <tr>
