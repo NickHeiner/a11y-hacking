@@ -62,15 +62,25 @@
                 Scroll with virtual cursor:
 
                     <aria labelledby> <aria labelledby> table <col count> columns, <row count> rows
+                        
+                    (The summary attribute is ignored.)
 
             iOS VoiceOver: 
                 Scroll with virtual cursor:
 
+                    <aria labelledby> <summary> <first header> table start
+
             JAWS: 
                 Navigate directly to table with Insert+F3
 
+                    Table with <col count> columns and <row count> rows
+                    <aria labelledby> <summary> column 1 row 1 <first header> <first header>
 
                 Scroll with virtual cursor:
+
+                    summary colon <summary>
+                    Table with <col count> columns and <row count> rows
+                    <first header> <second header>
 
 
         -->
