@@ -4,6 +4,33 @@
         <title>Table Demo</title>
     </head>
     <body>
+        <!--
+            macOS VoiceOver: 
+                Navigate directly to table with VO+Command+t
+                    
+                    <summary> table
+
+                Scroll with virtual cursor:
+
+                    <summary> table <col count> columns, <row count> rows
+
+            iOS VoiceOver: 
+                Scroll with virtual cursor:
+                    <summary> <first header> table start
+
+            JAWS: 
+                Navigate directly to table with Insert+F3
+
+                    Table with <col count> columns and <row count> rows. 
+                    <summary> column 1 row 1 <first header> <first header>
+
+                Scroll with virtual cursor:
+
+                    summary colon <summary>
+                    Table with <col count> columns and <row count> rows.
+                    <first header> <second header> 
+
+        -->
         <h1>Non-standards-compliant table</h1>
         <table summary="this is the table summary">
             <tr>
@@ -205,8 +232,6 @@
                 Scroll with virtual cursor:
 
                     Table with <col count> columns and <row count> rows. <caption> <first header> <second header>
-
-            
         -->
         <table aria-labelledby="table-caption-label">
             <caption>this is the caption</caption>
