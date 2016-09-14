@@ -62,7 +62,7 @@
                 Scroll with virtual cursor:
 
                     <aria labelledby> <aria labelledby> table <col count> columns, <row count> rows
-                        
+
                     (The summary attribute is ignored.)
 
             iOS VoiceOver: 
@@ -288,6 +288,47 @@
         -->
         <table aria-labelledby="table-caption-label">
             <caption>this is the caption</caption>
+            <tr>
+                <th>Year</th>
+                <th>Cost</th>
+            </tr>
+            <tr>
+                <td>2015</td>
+                <td>$2,541</td>
+            </tr>
+            <tr>
+                <td>2014</td>
+                <td>$9,001</td>
+            </tr>
+            <tr>
+                <td>2013</td>
+                <td>$1,337</td>
+            </tr>
+        </table>
+
+        <h1 id="table-hidden-caption-label">Table with an aria-hidden caption</h1>
+        <!--
+            macOS VoiceOver: 
+                Navigate directly to table with VO+Command+t
+                    
+                    <aria labelledby> table <caption>
+
+                Scroll with virtual cursor:
+
+                    <aria labelledby> <aria labelledby> table with <col count> columns, <row count> rows. <caption>
+
+            iOS VoiceOver: 
+                Scroll with virtual cursor:
+
+            JAWS: 
+                Navigate directly to table with Insert+F3
+
+
+                Scroll with virtual cursor:
+
+        -->
+        <table aria-labelledby="table-hidden-caption-label">
+            <caption aria-hidden="true">this is the caption</caption>
             <tr>
                 <th>Year</th>
                 <th>Cost</th>
