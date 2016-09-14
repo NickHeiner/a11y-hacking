@@ -44,7 +44,7 @@
              You are then able to use the virtual cursor to navigate the table. 
              JAWS ignores the aria-describedby field.
 
-             VoiceOver will read the following for the table, when using VO+Command+t to jump to the next table,
+             macOS VoiceOver will read the following for the table, when using VO+Command+t to jump to the next table,
              or VO+left/right arrow:
 
              Standards compliant table, table. 
@@ -55,6 +55,10 @@
              Table <col count> columns <row count> rows.
 
              Then you can use the VO+left/right arrow to navigate the table as expected.
+
+             iOS VoiceOver will read the following when you right swipe onto the table from the previous element.
+
+             <caption> <aria-label> <aria-describedby> <caption> table start.
         -->
         <p aria-hidden="true" id="table-description">
             This is the table description set by aria-describedby. It is marked as aria-hidden.
@@ -111,8 +115,11 @@
         <table aria-label="this is the table label" aria-describedby="table-description-not-hidden">
             <caption>This is the caption</caption>
             <tr>
-                <!-- Including scope will cause VoiceOver to read the column name before 
+                <!-- Including scope will cause macOS VoiceOver to read the header name before 
                      reading the value in a cell, but only for the first column in a row.
+
+                     iOS VoiceOver will always read the header name, even without the scope attribute,
+                     and for each column.
                 -->
                 <th scope="col">Year</th>
                 <th scope="col">Cost</th>
@@ -153,6 +160,31 @@
 
         <h1 id="table-labelled-by-label">Table with aria-labelledby</h1>
         <table aria-labelledby="table-labelled-by-label">
+            <tr>
+                <th>Year</th>
+                <th>Cost</th>
+            </tr>
+            <tr>
+                <td>2015</td>
+                <td>$2,541</td>
+            </tr>
+            <tr>
+                <td>2014</td>
+                <td>$9,001</td>
+            </tr>
+            <tr>
+                <td>2013</td>
+                <td>$1,337</td>
+            </tr>
+        </table>
+        </table>
+
+        <h1 id="table-hidden-caption-label">Table with aria-hidden caption</h1>
+        <!--
+            macOS VoiceOver: <aria labelled-by> table <caption> 
+        -->
+        <table aria-labelledby="table-hidden-caption-label">
+            <caption aria-hidden="true">This caption is aria hidden</caption>
             <tr>
                 <th>Year</th>
                 <th>Cost</th>
