@@ -1,31 +1,35 @@
 <html>
     <head>
-        <title>Jaws reading buttons</title>
+        <title>JAWS reading buttons</title>
     </head>
     <body>
-        <h1>JAWS reading buttons</h1>
+        <h1>JAWS reading buttons demo</h1>
+        <p>I can only repro this sometimes. I have not found a way to do it deterministically.</p>
         <p>
             Repro steps:
             <ol>
                 <li>INSERT+F3</li>
                 <li>Choose "Buttons"</li>
-                <li>Choose "First"</li>
+                <li>Choose "First Button"</li>
                 <li>Hit enter</li>
                 <li>Observe JAWS reads "First"</li>
                 <li>INSERT+F3</li>
                 <li>Choose "Buttons"</li>
-                <li>Choose "Second"</li>
-                <li>Hit enter</li>
-                <li>Observe JAWS reads "Second"</li>
-                <li>INSERT+F3</li>
-                <li>Choose "Buttons"</li>
-                <li>Choose "First"</li>
+                <li>Choose "Second Button"</li>
                 <li>Hit enter</li>
             </ol>
         </p>
         <p><strong>Expected:</strong> JAWS reads "Second"</p>
-        <p><strong>Actual:</strong> JAWS reads "Second First"</p>
+        <p><strong>Actual:</strong> JAWS reads "First Second"</p>
+
+        <h2>Buttons on their own</h2>
         <button>First</button>
         <button>Second</button>
+
+        <h2>Buttons in a dialog</h2>
+        <div role="dialog">
+            <button>First dialog</button>
+            <button>Second second</button>
+        </div>
     </body>
 </html>
