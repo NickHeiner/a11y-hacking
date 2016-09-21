@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Demo of VoiceOver Highlight</title>
+        <script>
+            window.addEventListener('load', function() {
+                var dynamicRegionEl = document.getElementById('dynamic-region');
+
+                function goToOverview() {
+                    dynamicRegionEl.innerHTML = [
+                        '<h2>Overview mode</h2>',
+                        '<button id="drill-down-button">Drill down</button>'
+                    ].join('\n')
+
+                    var drillDownButton = document.getElementById('drill-down-button');
+                    drillDownButton.addEventListener('click', goToDrilldown);
+                    drillDownButton.focus();
+                }
+
+                function goToDrilldown() {
+                    dynamicRegionEl.innerHTML = [
+                        '<button id="back-button">Back</button>',
+                        '<h2>Drill Down Mode</h2>',
+                        '<p>Here is some additional data</p>'
+                    ].join('\n')
+
+                    var backButton = document.getElementById('back-button');
+                    backButton.addEventListener('click', goToOverview);
+                    backButton.focus();
+                }
+
+                goToOverview();
+            });
+        </script>  
+    </head>
+    <body>
+        <h1>VoiceOver Highlight</h1>
+        <div id="dynamic-region">
+        </div>
+    </body>
+</html>
